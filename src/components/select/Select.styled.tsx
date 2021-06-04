@@ -3,7 +3,6 @@ import styled from "@emotion/styled";
 interface ISelectStyledProps {
   isOpen?: boolean;
   isHighlighted?: boolean;
-  isRHF?: boolean;
 }
 
 export const SelectContainer = styled.div`
@@ -18,7 +17,6 @@ export const SelectHeader = styled.button<ISelectStyledProps>`
   border-style: solid;
   border-color: ${(props) => (props.isOpen ? "#ff4b4b" : "transparent")};
   min-width: 100%;
-  /* width: 297px; */
   background-color: ${(props) => (props.isOpen ? "#fff" : "#F1F0F0")};
   color: ${(props) => (props.isOpen ? "#ff4b4b" : "#919191")};
 `;
@@ -26,8 +24,8 @@ export const SelectHeader = styled.button<ISelectStyledProps>`
 export const SelectList = styled.ul<ISelectStyledProps>`
   max-height: "200px";
   overflow-y: "auto";
-  width: ${(props) => (props.isRHF ? "250px" : "150px")};
-  margin: ${(props) => (props.isRHF ? "55px 0 0 0 " : "12px 0 0 0")};
+  width: "150px";
+  margin: "12px 0 0 0";
   border-width: ${(props) => (props.isOpen ? "1px" : "0")};
   border-style: solid;
   border-color: #e5e4e4;
@@ -38,9 +36,10 @@ export const SelectList = styled.ul<ISelectStyledProps>`
   border-radius: 8px;
   color: #ff4b4b;
   z-index: 1000;
+  padding-inline-start: 0;
 `;
 export const SelectListItem = styled.li<ISelectStyledProps>`
-  padding: 5px;
+  padding: 5px 10px;
   background: ${(props) => (props.isHighlighted ? "#A0AEC0" : "")};
   &:first-of-type {
     border-top-left-radius: 8px;

@@ -19,7 +19,6 @@ interface OptionType {
 
 export interface Props {
   items: OptionType[];
-  // onChange: (selectedItem: string) => void;
 }
 
 const Select: FC<Props> = ({ items }) => {
