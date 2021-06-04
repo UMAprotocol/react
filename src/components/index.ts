@@ -1,1 +1,2 @@
-export { default as Button, Props as ButtonProps } from "./Button";
+export { Button, ButtonProps } from "./button";
+export { Select, SelectProps} from "./select";
