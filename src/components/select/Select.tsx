@@ -1,4 +1,4 @@
-import { FC } from "react";
+import React, { FC } from "react";
 
 import { useSelect } from "downshift";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
