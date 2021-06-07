@@ -1,5 +1,5 @@
 {
-  "name": "@uma/react",
+  "name": "@uma/react-library",
   "version": "0.1.0",
   "license": "AGPL-3.0-or-later",
   "main": "dist/index.js",
@@ -14,7 +14,8 @@
   "scripts": {
     "start": "tsdx watch",
     "build": "tsdx build",
-    "test": "tsdx test --passWithNoTests --watchAll",
+    "test": "tsdx test --passWithNoTests",
+    "test:watch": "txdx test --passWithNoTests --watchAll",
     "lint": "tsdx lint",
     "prepare": "tsdx build",
     "storybook": "start-storybook -p 6006",
