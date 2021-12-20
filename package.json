@@ -23,7 +23,8 @@
     "lint": "tsdx lint",
     "prepare": "tsdx build",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "np": "np --no-publish"
   },
   "peerDependencies": {
     "@emotion/react": "^11.1.5",
