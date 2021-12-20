@@ -1,5 +1,5 @@
 {
-  "name": "@uma/react-library",
+  "name": "@uma/react",
   "version": "0.1.1",
   "license": "AGPL-3.0-or-later",
   "main": "dist/index.js",
@@ -24,7 +24,11 @@
     "prepare": "tsdx build",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "np": "np --no-publish"
+    "preview-release": "np --preview --no-publish",
+    "prepare-patch": "yarn preview-release patch && yarn version --patch",
+    "prepare-minor": "yarn preview-release minor && yarn version --minor",
+    "prepare-major": "yarn preview-release major && yarn version --major",
+    "release": "np $npm_package_version"
   },
   "peerDependencies": {
     "@emotion/react": "^11.1.5",
@@ -71,6 +75,7 @@
     "@types/testing-library__jest-dom": "^5.9.5",
     "babel-loader": "^8.2.3",
     "husky": "^7.0.4",
+    "np": "^7.6.0",
     "react-dom": "^17.0.2",
     "react-is": "^17.0.2",
     "tsdx": "^0.14.1",
