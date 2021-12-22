@@ -20,7 +20,15 @@ export default meta;
 //👇 We create a “template” of how args map to rendering
 const Template: Story<InputProps> = args => {
   const [value, setValue] = useState("");
-  return <Input width="400px" {...args} value={value} setValue={setValue} />;
+  return (
+    <Input
+      width="400px"
+      placeholder="Type here..."
+      {...args}
+      value={value}
+      setValue={setValue}
+    />
+  );
 };
 
 export const Basic = Template.bind({});

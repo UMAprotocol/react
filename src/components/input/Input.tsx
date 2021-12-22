@@ -30,6 +30,7 @@ const TextInput: FC<Props> = ({
   customOnChange,
   onKeyDown,
   id,
+  placeholder,
 }) => {
   return (
     <StyledInput inputWidth={width}>
@@ -39,6 +40,7 @@ const TextInput: FC<Props> = ({
           id={id}
           type="text"
           value={value}
+          placeholder={placeholder}
           onChange={e => {
             if (customOnChange) {
               return customOnChange(e);
