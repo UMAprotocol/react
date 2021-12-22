@@ -26,10 +26,3 @@ Primary.args = {
   variant: "primary",
   children: "Hello UMA",
 };
-
-export const Outline = Template.bind({});
-
-Outline.args = {
-  variant: "outline",
-  children: "Hello UMA",
-};
