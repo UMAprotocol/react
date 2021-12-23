@@ -29,7 +29,8 @@
   "peerDependencies": {
     "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.1.5",
-    "react": ">=16"
+    "react": ">=17",
+    "typescript": ">=4.5"
   },
   "husky": {
     "hooks": {
@@ -70,12 +71,10 @@
     "@types/testing-library__jest-dom": "^5.9.5",
     "babel-loader": "^8.2.3",
     "husky": "^7.0.4",
-    "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-is": "^17.0.2",
     "tsdx": "^0.14.1",
-    "tslib": "^2.3.1",
-    "typescript": "^4.5.4"
+    "tslib": "^2.3.1"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
