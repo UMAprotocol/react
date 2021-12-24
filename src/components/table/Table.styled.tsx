@@ -114,5 +114,5 @@ export const Title = styled.h3`
   background-color: #ffffff;
   margin-bottom: 0;
   padding-top: 1rem;
-  padding-left: 1rem;
+  padding-left: 0.75rem;
 `;
