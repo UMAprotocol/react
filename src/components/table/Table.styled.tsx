@@ -58,14 +58,8 @@ export const Row = styled.div`
   display: flex;
   align-items: center;
   padding: 15px 0;
-  /* &:not(first-of-type) {
-    margin-top: 5px;
-  } */
   transition: all linear 0.2s;
 
-  /* &:hover {
-    background-color: var(--gray-100);
-  } */
   &:nth-of-type(2) {
     background-color: #ffffff;
   }
@@ -84,10 +78,10 @@ interface ICellStyled {
 
 export const Cell = styled.div<ICellStyled>`
   flex: ${({ size = "sm" }) => {
-    if (size === ("xs" as CellSize)) return "0 0 30px";
-    if (size === ("sm" as CellSize) || size === undefined) return "0 0 60px";
-    if (size === ("md" as CellSize)) return "1 1 120px";
-    if (size === ("lg" as CellSize)) return "flex: 1 2 550px";
+    if (size === "xs") return "0 0 30px";
+    if (size === "sm" || size === undefined) return "0 0 60px";
+    if (size === "md") return "1 1 120px";
+    if (size === "lg") return "flex: 1 2 550px";
     return "0 0 60px";
   }};
 
