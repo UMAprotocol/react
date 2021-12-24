@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { ICell, CellSize } from "./Table";
 
 const BREAKPOINTS = {
   tabletMin: 550,
@@ -77,19 +78,16 @@ export const HeadRow = styled(Row)`
   margin-bottom: 0;
 `;
 
-export type CellSize = "xs | sm | md | lg";
-
-interface ICell {
-  // if undefined, defaults to "sm"
+interface ICellStyled {
   size?: CellSize;
 }
 
-export const Cell = styled.div<ICell>`
+export const Cell = styled.div<ICellStyled>`
   flex: ${({ size = "sm" }) => {
     if (size === ("xs" as CellSize)) return "0 0 30px";
+    if (size === ("sm" as CellSize) || size === undefined) return "0 0 60px";
     if (size === ("md" as CellSize)) return "1 1 120px";
     if (size === ("lg" as CellSize)) return "flex: 1 2 550px";
-    if (size === ("sm" as CellSize) || size === undefined) return "0 0 60px";
     return "0 0 60px";
   }};
 

@@ -1,23 +1,24 @@
-import React, { FC } from "react";
-import {
-  TableWrapper,
-  Row,
-  Body,
-  HeadRow,
-  Cell,
-  CellSize,
-} from "./Table.styled";
-
-export interface HeaderCell {
-  size?: CellSize;
-  value: string;
-}
+import React, { FC, ReactElement } from "react";
+import { TableWrapper, Row, Body, HeadRow, Cell } from "./Table.styled";
 
 export interface TableProps {
-  headerCells: HeaderCell[];
+  headerCells: ICell[];
+  rows: Row[];
 }
 
-const Table: FC<TableProps> = ({ headerCells }) => {
+export type CellSize = "xs | sm | md | lg";
+
+export interface ICell {
+  // if undefined, defaults to "sm"
+  size?: CellSize;
+  value: string | ReactElement;
+}
+
+interface Row {
+  cells: ICell[];
+}
+
+const Table: FC<TableProps> = ({ headerCells, rows }) => {
   return (
     <TableWrapper>
       <HeadRow>
@@ -30,28 +31,19 @@ const Table: FC<TableProps> = ({ headerCells }) => {
         })}
       </HeadRow>
       <Body>
-        <Row>
-          <Cell size={"xs" as CellSize}>0</Cell>
-          <Cell>requester</Cell>
-          <Cell>Address</Cell>
-          <Cell size={"lg" as CellSize}>
-            0x1234567890123456789012345678901234567890
-          </Cell>
-        </Row>
-        <Row>
-          <Cell size={"xs" as CellSize}>1</Cell>
-          <Cell>identifier</Cell>
-          <Cell>bytes32</Cell>
-          <Cell size={"lg" as CellSize}>General KPI</Cell>
-        </Row>
-        <Row>
-          <Cell size={"xs" as CellSize}>2</Cell>
-          <Cell>timestamp</Cell>
-          <Cell>uint256</Cell>
-          <Cell size={"lg" as CellSize}>
-            Nov 17 2021 23:00:00 (218817239812389)
-          </Cell>
-        </Row>
+        {rows.map((row, ridx) => {
+          return (
+            <Row key={ridx}>
+              {row.cells.map((cell, cidx) => {
+                return (
+                  <Cell key={cidx} size={cell.size}>
+                    {cell.value}
+                  </Cell>
+                );
+              })}
+            </Row>
+          );
+        })}
       </Body>
     </TableWrapper>
   );
