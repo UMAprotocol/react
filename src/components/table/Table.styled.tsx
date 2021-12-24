@@ -17,7 +17,7 @@ const QUERIES = {
 export const TableWrapper = styled.div`
   width: 100%;
   font-size: clamp(0.75rem, 1.2vw + 0.4rem, 1.125rem);
-  padding-top: 10px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
   @media ${QUERIES.tabletAndDown} {
     overflow: auto;
   }
@@ -106,11 +106,11 @@ export const Cell = styled.div<ICellStyled>`
 `;
 
 export const Body = styled.div`
+  /* padding: 15px 0; */
   background-color: var(--gray-300);
 `;
 
 export const Title = styled.h3`
-  width: 100%;
   background-color: #ffffff;
   margin-bottom: 0;
   padding-top: 1rem;
