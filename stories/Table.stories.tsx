@@ -1,6 +1,6 @@
 import React from "react";
 import { Story, Meta } from "@storybook/react";
-import { Table, TableProps, ICell, Row, CellSize } from "../src";
+import { Table, TableProps, ICell, Row } from "../src";
 
 const meta: Meta = {
   title: "Components/Table",
@@ -19,19 +19,19 @@ export default meta;
 
 const headerCells: ICell[] = [
   {
-    size: "xs" as CellSize,
+    size: "xs",
     value: "#",
   },
   {
-    size: "sm" as CellSize,
+    size: "sm",
     value: "Name",
   },
   {
-    size: "sm" as CellSize,
+    size: "sm",
     value: "Type",
   },
   {
-    size: "lg" as CellSize,
+    size: "lg",
     value: "Data",
   },
 ];
@@ -40,19 +40,19 @@ const rows: Row[] = [
   {
     cells: [
       {
-        size: "xs" as CellSize,
+        size: "xs",
         value: "0",
       },
       {
-        size: "sm" as CellSize,
+        size: "sm",
         value: "requester",
       },
       {
-        size: "sm" as CellSize,
+        size: "sm",
         value: "Address",
       },
       {
-        size: "lg" as CellSize,
+        size: "lg",
         value: (
           <a
             target="_blank"
@@ -68,19 +68,19 @@ const rows: Row[] = [
   {
     cells: [
       {
-        size: "xs" as CellSize,
+        size: "xs",
         value: "1",
       },
       {
-        size: "sm" as CellSize,
+        size: "sm",
         value: "identifier",
       },
       {
-        size: "sm" as CellSize,
+        size: "sm",
         value: "bytes32",
       },
       {
-        size: "lg" as CellSize,
+        size: "lg",
         value: "General KPI",
       },
     ],
@@ -88,19 +88,19 @@ const rows: Row[] = [
   {
     cells: [
       {
-        size: "xs" as CellSize,
+        size: "xs",
         value: "2",
       },
       {
-        size: "sm" as CellSize,
+        size: "sm",
         value: "timestamp",
       },
       {
-        size: "sm" as CellSize,
+        size: "sm",
         value: "uint256",
       },
       {
-        size: "lg" as CellSize,
+        size: "lg",
         value: "Nov 17 2021 23:00:00 (218817239812389)",
       },
     ],

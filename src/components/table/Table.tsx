@@ -6,7 +6,7 @@ export interface TableProps {
   rows: Row[];
 }
 
-export type CellSize = "xs | sm | md | lg";
+export type CellSize = "xs" | "sm" | "md" | "lg";
 
 export interface ICell {
   // if undefined, defaults to "sm"
