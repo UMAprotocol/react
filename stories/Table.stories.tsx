@@ -118,3 +118,24 @@ Basic.args = {
   rows,
   headerCells,
 };
+
+export const BasicWithTitle = Template.bind({});
+
+BasicWithTitle.args = {
+  rows,
+  headerCells,
+  title: "Input data",
+};
+
+export const TitleAsElement = Template.bind({});
+
+TitleAsElement.args = {
+  rows,
+  headerCells,
+  title: (
+    <div style={{ marginLeft: "16px" }}>
+      <p style={{ color: "red" }}>React Element Title </p>
+      <p>Input Data</p>
+    </div>
+  ),
+};
