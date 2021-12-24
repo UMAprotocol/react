@@ -106,6 +106,13 @@ export const Cell = styled.div<ICellStyled>`
 `;
 
 export const Body = styled.div`
-  /* padding: 15px 0; */
   background-color: var(--gray-300);
+`;
+
+export const Title = styled.h3`
+  width: 100%;
+  background-color: #ffffff;
+  margin-bottom: 0;
+  padding-top: 1rem;
+  padding-left: 1rem;
 `;
