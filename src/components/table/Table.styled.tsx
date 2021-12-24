@@ -20,6 +20,12 @@ export const TableWrapper = styled.div`
   padding-top: 10px;
 `;
 
+export const Wrapper = styled.div`
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 15px;
+`;
+
 export const NameHeading = styled.h6`
   font-weight: bold;
   display: flex;
@@ -64,11 +70,6 @@ export const Row = styled.div`
 
   &:hover {
     background-color: var(--gray-100);
-
-    & ${NameHeading} {
-      color: var(--primary);
-      transition: all ease-in 0.3s;
-    }
   }
 
   @media ${QUERIES.tabletAndUp} {
@@ -76,14 +77,14 @@ export const Row = styled.div`
   }
 `;
 
-const HeadRow = styled(Row)`
+export const HeadRow = styled(Row)`
   font-weight: 600;
   cursor: default;
   &:hover {
     background-color: revert;
   }
 `;
-const Cell = styled.div`
+export const Cell = styled.div`
   flex: 1 1 120px;
   &:first-of-type {
     flex: 0 0 30px;
@@ -98,4 +99,9 @@ const Cell = styled.div`
       min-width: 250px;
     }
   }
+`;
+
+export const Body = styled.div`
+  padding: 15px 0;
+  background-color: var(--gray-300);
 `;
