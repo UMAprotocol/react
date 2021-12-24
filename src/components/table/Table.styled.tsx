@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { ICell, CellSize } from "./Table";
+import { CellSize } from "./Table";
 
 const BREAKPOINTS = {
   tabletMin: 550,

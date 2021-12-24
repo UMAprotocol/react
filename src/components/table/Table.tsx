@@ -14,7 +14,7 @@ export interface ICell {
   value: string | ReactElement;
 }
 
-interface Row {
+export interface Row {
   cells: ICell[];
 }
 
