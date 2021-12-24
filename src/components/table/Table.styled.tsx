@@ -77,15 +77,33 @@ export const HeadRow = styled(Row)`
   margin-bottom: 0;
 `;
 
-export const Cell = styled.div`
-  flex: 1 1 120px;
+export type CellSize = "xs | sm | md | lg";
+
+interface ICell {
+  // if undefined, defaults to "sm"
+  size?: CellSize;
+}
+
+export const Cell = styled.div<ICell>`
+  flex: ${({ size = "sm" }) => {
+    if (size === ("xs" as CellSize)) return "0 0 30px";
+    if (size === ("md" as CellSize)) return "1 1 120px";
+    if (size === ("lg" as CellSize)) return "flex: 1 2 550px";
+    if (size === ("sm" as CellSize) || size === undefined) return "0 0 60px";
+    return "0 0 60px";
+  }};
+
+  margin: 0 8px;
+
   &:first-of-type {
-    flex: 0 0 30px;
-    margin-left: 16px;
+    margin-left: 24px;
     margin-right: 25px;
     @media ${QUERIES.tabletAndUp} {
       margin-right: 50px;
     }
+  }
+  &:not(:first-of-type) {
+    min-width: 150px;
   }
   &:nth-of-type(4) {
     flex: 1 2 550px;
