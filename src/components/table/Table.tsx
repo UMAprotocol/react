@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import {
   TableWrapper,
   Row,
@@ -8,14 +8,26 @@ import {
   CellSize,
 } from "./Table.styled";
 
-const Table = () => {
+export interface HeaderCell {
+  size?: CellSize;
+  value: string;
+}
+
+export interface TableProps {
+  headerCells: HeaderCell[];
+}
+
+const Table: FC<TableProps> = ({ headerCells }) => {
   return (
     <TableWrapper>
       <HeadRow>
-        <Cell size={"xs" as CellSize}>#</Cell>
-        <Cell>Name</Cell>
-        <Cell>Type</Cell>
-        <Cell>Data</Cell>
+        {headerCells.map((cell, index) => {
+          return (
+            <Cell key={index} size={cell.size}>
+              {cell.value}
+            </Cell>
+          );
+        })}
       </HeadRow>
       <Body>
         <Row>
