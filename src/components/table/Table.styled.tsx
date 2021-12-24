@@ -16,14 +16,10 @@ const QUERIES = {
 export const TableWrapper = styled.div`
   width: 100%;
   font-size: clamp(0.75rem, 1.2vw + 0.4rem, 1.125rem);
-  overflow: auto;
   padding-top: 10px;
-`;
-
-export const Wrapper = styled.div`
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 15px;
+  @media ${QUERIES.tabletAndDown} {
+    overflow: auto;
+  }
 `;
 
 export const NameHeading = styled.h6`
@@ -57,43 +53,41 @@ export const NameHeading = styled.h6`
 
 export const Row = styled.div`
   width: 100%;
-  background-color: var(--white);
-  cursor: pointer;
-  border-radius: 5px;
+  background-color: #f5f5f5;
   display: flex;
   align-items: center;
-  padding: 8px 10px;
-  &:not(first-of-type) {
+  padding: 15px 0;
+  /* &:not(first-of-type) {
     margin-top: 5px;
-  }
+  } */
   transition: all linear 0.2s;
 
-  &:hover {
+  /* &:hover {
     background-color: var(--gray-100);
-  }
-
-  @media ${QUERIES.tabletAndUp} {
-    padding: 10px 20px;
+  } */
+  &:nth-of-type(2) {
+    background-color: #ffffff;
   }
 `;
 
 export const HeadRow = styled(Row)`
   font-weight: 600;
   cursor: default;
-  &:hover {
-    background-color: revert;
-  }
+  background: #ffffff;
+  margin-bottom: 0;
 `;
+
 export const Cell = styled.div`
   flex: 1 1 120px;
   &:first-of-type {
     flex: 0 0 30px;
+    margin-left: 16px;
     margin-right: 25px;
     @media ${QUERIES.tabletAndUp} {
       margin-right: 50px;
     }
   }
-  &:nth-of-type(2) {
+  &:nth-of-type(4) {
     flex: 1 2 550px;
     @media ${QUERIES.tabletAndUp} {
       min-width: 250px;
@@ -102,6 +96,6 @@ export const Cell = styled.div`
 `;
 
 export const Body = styled.div`
-  padding: 15px 0;
+  /* padding: 15px 0; */
   background-color: var(--gray-300);
 `;
