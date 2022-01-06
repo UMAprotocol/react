@@ -11,6 +11,6 @@ PUBLISHED_PACKAGE_VER=$(yarn --silent info @uma/react version)
 CURRENT_PACKAGE_VER=$(node -p "require('./package.json').version")
 
 if [[ $((10#$(ver $CURRENT_PACKAGE_VER))) -le $((10#$(ver $PUBLISHED_PACKAGE_VER))) ]]; then
-  echo "Invalid package version"
+  echo "Non-updated or invalid package version"
   exit 1
 fi
