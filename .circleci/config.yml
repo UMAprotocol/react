@@ -1,17 +1,5 @@
 version: 2
 jobs:
-  publishDryRun:
-    docker:
-      - image: circleci/node:lts
-    steps:
-      - checkout
-      - run:
-          name: Install Prereqs
-          command: sudo apt-get update && sudo apt-get install -y libudev-dev libusb-1.0-0-dev yarn
-      - run:
-          name: Check Package Version Valid on NPM
-          command: ./.circleci/check_npm_version.sh
-
   publish:
     docker:
       - image: circleci/node:lts
@@ -19,14 +7,13 @@ jobs:
       - checkout
       - run:
           name: Install Prereqs
-          command: sudo apt-get update && sudo apt-get install -y libudev-dev libusb-1.0-0-dev yarn
+          command: sudo apt-get update && sudo apt-get install -y yarn
       - run:
           name: Authenticate with registry
           command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/.npmrc
       - run:
           name: Publish package
           command: |
-            # Sometimes we just wanna update the readme file
             if ./.circleci/check_npm_version.sh; then
                 yarn publish --access public
             fi
@@ -35,12 +22,6 @@ workflows:
   version: 2
   test-publish:
     jobs:
-      - publishDryRun:
-          context: api_keys
-          filters:
-            branches:
-              ignore:
-                - master
       - publish:
           context: api_keys
           filters:
