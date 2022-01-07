@@ -5,6 +5,9 @@ jobs:
       - image: circleci/node:lts
     steps:
       - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - "e5:da:db:1a:1d:66:5b:e7:f5:43:f2:24:1c:56:6a:97"
       - run:
           name: Install Prereqs
           command: sudo apt-get update && sudo apt-get install -y yarn
@@ -15,7 +18,7 @@ jobs:
           name: Publish package
           command: |
             if ./.circleci/check_npm_version.sh; then
-                yarn publish --access public
+                yarn release
             fi
 
 workflows:
