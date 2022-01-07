@@ -179,3 +179,21 @@ Change the `alias` to point to where those packages are actually installed. This
 ```
 
 An alternative to fixing this problem would be to remove aliases altogether and define the dependencies referenced as aliases as dev dependencies instead. [However, that might cause other problems.](https://github.com/palmerhq/tsdx/issues/64)
+
+## Publishing
+To release a new version to npm, we have to signal to CI that a release is needed by changing the version number in the `package.json`.
+There are some basic scripts to help bump the version. This uses `np` to do some basic cleanup tests before allowing the version to be changed.
+Once this passes, commit the package file with the version bump and open a PR. Once merged, this should trigger CI to run an automatic release with that version.
+
+- `yarn prepare-patch`: This will bump the patch version ie 1.2.X.
+- `yarn prepare-minor`: This will bump the minor version ie 1.X.3.
+- `yarn prepare-major`: This will bump the major version ie X.2.3.
+
+The only changes from these commands should be to alter the version in the package file. You can also change the version manually
+but its recommended to run `yarn preview release` to make sure there are no easily caught issues before release only if you are manually changing the version.
+
+
+## Publishing in CI
+Assuming CI has access to the repo and an npm account, it should be able to just run `yarn release`. This will run `np`
+with the current version number, tag a release to github and publish to npm. 
+
