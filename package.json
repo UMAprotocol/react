@@ -24,11 +24,11 @@
     "prepare": "tsdx build",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "preview-release": "np --preview --no-publish",
+    "preview-release": "np --preview --no-publish --any-branch",
     "prepare-patch": "yarn preview-release patch && yarn version --patch",
     "prepare-minor": "yarn preview-release minor && yarn version --minor",
     "prepare-major": "yarn preview-release major && yarn version --major",
-    "release": "np $npm_package_version"
+    "release": "np $npm_package_version --any-branch"
   },
   "peerDependencies": {
     "@emotion/react": "^11.1.5",
