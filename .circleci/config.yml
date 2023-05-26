@@ -1,36 +1,23 @@
-version: 2
+version: 2.1
+
+# Define the jobs we want to run for this project
 jobs:
-  publish:
+  build:
     docker:
-      - image: circleci/node:lts
+      - image: cimg/base:2023.03
     steps:
       - checkout
-      - add_ssh_keys:
-          fingerprints:
-            - "e5:da:db:1a:1d:66:5b:e7:f5:43:f2:24:1c:56:6a:97"
-      - run:
-          name: Install Prereqs
-          command: sudo apt-get update && sudo apt-get install -y yarn
-      - run:
-          name: Install packages
-          command: yarn install --frozen-lockfile
-      - run:
-          name: Authenticate with registry
-          command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/.npmrc
-      - run:
-          name: Publish package
-          command: |
-            if ./.circleci/check_npm_version.sh; then
-                yarn release
-            fi
+      - run: echo "this is the build job"
+  test:
+    docker:
+      - image: cimg/base:2023.03
+    steps:
+      - checkout
+      - run: echo "this is the test job"
 
+# Orchestrate our job run sequence
 workflows:
-  version: 2
-  test-publish:
+  build_and_test:
     jobs:
-      - publish:
-          context: api_keys
-          filters:
-            branches:
-              only:
-                - master
+      - build
+      - test
